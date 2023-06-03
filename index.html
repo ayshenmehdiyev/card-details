@@ -41,7 +41,7 @@
             <div>EXP.DATE(MM/YY)</div>
             <div class="mons-year">
               <div>
-                <select name="" id="">
+                <select name="" id="day">
                   <option value="">MM</option>
                   <option value="" >YY</option>
                   <option value="">01</option>
@@ -52,7 +52,7 @@
                   <option value="">06</option>
                   <option value="">07</option>
                   <option value="">08</option>
-                  <option value="">09</option>
+                  <option value="09">09</option>
                   <option value="">10</option>
                   <option value="">11</option>
                   <option value="">12</option>
@@ -77,8 +77,9 @@
                   <option value="">31</option>
                 </select>
               </div>
-              <div><select name="" id="">
+              <div><select name="" id="mon">
                   <option value="" >YY</option>
+                  <option value="00">00</option>
                   <option value="">01</option>
                   <option value="">02</option>
                   <option value="">03</option>
@@ -96,36 +97,58 @@
           </div>
           <div class="cvc">
             <div>CVC</div>
-            <div><input type="text" class="eg-123" placeholder="e.g. 123"></div>
+            <div><input type="text" class="eg-123" placeholder="e.g. 123" id="cvc"></div>
           </div>
         </div>
-        <button type="button" yoxla()">Confirm</button>
+        <button type="button" onclick="yoxla()" >Confirm</button>
       </form>
     </div>
   </div>
   <script type="text/javascript">
     function yoxla() {
-      var name = "Felicia Leire";
-      var number = " 9591 6489 6389 101E";
+      var name = document.getElementById("name").value;
+      var number = document.getElementById("number").value;
+      var day =document.getElementById("day").value;
+      var month=document.getElementById("mon").value;
+      var cvc =document.getElementById("cvc").value;
 
-
-      if (document.getElementById("name").value = name) {
+      if ( "Felicia Leire"== name) {
         document.getElementById("name").style.borderColor = "green";
       }
       else {
-        //document.getElementById("uyari").innerHTML="Wrong format, numbers only";
-        //document.getElementById("uyari").style.color="red";
-        document.getElementById("name").style.focus.borderColor = "red";
+
+        document.getElementById("name").style.borderColor = "red";
       }
 
-      if (document.getElementById("number").value = number) {
+      if (" 9591 6489 6389 101E" == number) {
         document.getElementById("number").style.borderColor = "green";
       }
       else {
-        // document.getElementById("uyari").innerHTML="Wrong format, numbers only";
-        // document.getElementById("uyari").style.color="red";
         document.getElementById("number").style.borderColor = "red";
       }
+
+      if ("09" == day) {
+        document.getElementById("day").style.borderColor = "green";
+      }
+      else {
+        document.getElementById("day").style.borderColor = "red";
+      }
+
+
+      if ("00" == month) {
+        document.getElementById("mon").style.borderColor = "green";
+      }
+      else {
+        document.getElementById("mon").style.borderColor = "red";
+      }
+
+      if ("000" == cvc) {
+        document.getElementById("cvc").style.borderColor = "green";
+      }
+      else {
+        document.getElementById("cvc").style.borderColor = "red";
+      }
+
     }
   </script>
 </body>
